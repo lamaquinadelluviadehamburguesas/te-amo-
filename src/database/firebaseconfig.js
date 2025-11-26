@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { initializeAuth, indexedDBLocalPersistence, browserLocalPersistence, browserSessionPersistence, inMemoryPersistence } from "firebase/auth";
+import { initializeFirestore } from "firebase/firestore";
+import { initializeAuth, inMemoryPersistence, signInAnonymously } from "firebase/auth";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -18,15 +18,14 @@ const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
 // Auth
 const auth = initializeAuth(app, {
-  persistence: [
-    indexedDBLocalPersistence,
-    browserLocalPersistence,
-    browserSessionPersistence,
-    inMemoryPersistence
-  ]
+  persistence: inMemoryPersistence
 });
+signInAnonymously(auth).catch(() => {});
 
 // Firestore
-const db = getFirestore(app);
+const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+  useFetchStreams: false
+});
 
 export { app, auth, db };
