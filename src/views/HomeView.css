@@ -80,6 +80,88 @@
     box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
 }
 
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/fondo de inicio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.navigate-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navigate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/fondo de inicio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.navigate-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navigate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.navigate-btn.secondary {
+    background-color: rgba(255, 105, 180, 0.3);
+    border-color: rgba(255, 182, 193, 0.6);
+}
+
+.navigate-btn.secondary:hover {
+    background-color: rgba(255, 105, 180, 0.5);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
 .navigate-btn.birthday {
     background-color: rgba(255, 215, 0, 0.3);
     border-color: rgba(255, 223, 0, 0.6);
@@ -88,4 +170,14 @@
 .navigate-btn.birthday:hover {
     background-color: rgba(255, 215, 0, 0.5);
     box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+}
+
+.navigate-btn.gallery {
+    background-color: rgba(64, 224, 208, 0.3);
+    border-color: rgba(72, 209, 204, 0.6);
+}
+
+.navigate-btn.gallery:hover {
+    background-color: rgba(64, 224, 208, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 206, 209, 0.4);
 }

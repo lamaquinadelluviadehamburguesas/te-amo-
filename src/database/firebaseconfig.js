@@ -1,10 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth, initializeAuth, getReactNativePersistence, setPersistence, browserLocalPersistence, inMemoryPersistence } from "firebase/auth";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Platform } from "react-native";
-import "react-native-get-random-values";
-import "react-native-url-polyfill/auto";
+import { getAuth } from "firebase/auth";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -20,25 +16,8 @@ const firebaseConfig = {
 // Inicializa (o recupera) la app de Firebase una sola vez
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-// Auth: usa persistencia nativa en dispositivos y getAuth en web
-let auth;
-if (Platform.OS === "web") {
-  auth = getAuth(app);
-  try {
-    setPersistence(auth, browserLocalPersistence).catch(() => {
-      setPersistence(auth, inMemoryPersistence).catch(() => { });
-    });
-  } catch (_) { }
-} else {
-  try {
-    auth = initializeAuth(app, {
-      persistence: getReactNativePersistence(AsyncStorage),
-    });
-  } catch (e) {
-    // Si ya existe una instancia, recupera la existente
-    auth = getAuth(app);
-  }
-}
+// Auth
+const auth = getAuth(app);
 
 // Firestore
 const db = getFirestore(app);

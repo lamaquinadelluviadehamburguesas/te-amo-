@@ -20,6 +20,9 @@ const HomeView = () => {
             <button className="navigate-btn birthday" onClick={() => navigate('/birthday')}>
                 Ir al cumpleaños 🎂
             </button>
+            <button className="navigate-btn gallery" onClick={() => navigate('/gallery')}>
+                Nuestra Galería 📸
+            </button>
         </div>
     );
 };
