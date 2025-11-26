@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.romantic-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2a1b3d;
+    /* Fondo morado oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: #e0c0d0;
+    /* Color rosado pálido/blanco */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.6), 0 0 30px rgba(255, 20, 147, 0.4);
+    /* Glow suave */
+    z-index: 10;
+    text-align: center;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.rose {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: float 10s linear infinite;
+    user-select: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.click-heart {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    /* Para que no interfiera con los clics */
+    transform: translate(-50%, -50%);
+    /* Centrar en el clic */
+    animation: popAndFloat 1s ease-out forwards;
+}
+
+@keyframes popAndFloat {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -100%) scale(1.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -200%) scale(1);
+        opacity: 0;
+    }
+}
