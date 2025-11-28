@@ -43,3 +43,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-logo {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}

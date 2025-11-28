@@ -52,7 +52,9 @@ const TimeTogetherView = () => {
     return (
         <div className="time-together-container">
             <div className="timer-section">
-                <h1 className="timer-title">Tiempo que está justo te amo</h1>
+                <h1 className="timer-title">
+                 Tiempo en que estás a mi lado, donde cada hora se siente como un segundo Tiempo en que estás a mi lado, donde cada hora se siente como un segundo ❤️⏳✨
+                </h1>
                 <div className="timer-display">
                     <div className="time-unit">
                         <span className="number">{timeElapsed.days}</span>

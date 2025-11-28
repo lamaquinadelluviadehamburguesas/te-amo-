@@ -2,6 +2,8 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
 import { initializeAuth, inMemoryPersistence, signInAnonymously } from "firebase/auth";
 
+// Variables de entorno con las credenciales del proyecto (definidas en .env)
+// Se usan con Vite: import.meta.env.VITE_*
 // Configuración de Firebase
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,16 +15,18 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Inicializa (o recupera) la app de Firebase una sola vez
+// Inicializa la app de Firebase una sola vez; si ya existe, la reutiliza
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-// Auth
+// Autenticación anónima con persistencia en memoria para evitar IndexedDB/localStorage
+// Útil en entornos restringidos (navegadores móviles, sandboxes)
 const auth = initializeAuth(app, {
   persistence: inMemoryPersistence
 });
 signInAnonymously(auth).catch(() => {});
 
-// Firestore
+// Firestore con long polling para mejor compatibilidad en redes/firewalls exigentes
+// 'useFetchStreams: false' mantiene transporte clásico
 const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
   useFetchStreams: false

@@ -1,0 +1,9 @@
+solo usar en PowerShell
+cd "e:\morr\aplicacion completa\te amo"
+npm run build
+dir dist
+
+npx -y firebase-tools --version
+npx -y firebase-tools login
+npx -y firebase-tools use mi-amor-715e2
+npx -y firebase-tools deploy --only hosting

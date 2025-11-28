@@ -1,5 +1,7 @@
+/* Fuentes: 'Great Vibes' para títulos y notas cursivas; 'Outfit' para texto base */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;500&display=swap');
 
+/* Contenedor principal: fondo, layout vertical y scroll */
 .birthday-container {
     position: fixed;
     top: 0;
@@ -11,22 +13,26 @@
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    gap: 16px;
+    padding: 16px;
+    overflow-y: auto;
     z-index: 1;
 }
 
+/* Tarjeta principal del mensaje con borde dorado y glow */
 .message-card {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(10px);
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid #FFD700;
     max-width: 800px;
     text-align: center;
     z-index: 10;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 20px 40px rgba(0, 0, 0, 0.35);
     animation: fadeIn 1s ease-out;
     margin: 20px;
 }
@@ -91,4 +97,82 @@
     .message-card {
         padding: 2rem;
     }
+}
+
+/* Sección de notas: layout centrado y ancho máximo */
+.notes-section {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header sticky para mantener visible el botón de creación */
+.notes-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    padding-top: 8px;
+}
+
+/* Botón morado para crear nota */
+.note-create-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(189, 157, 255, 0.6);
+    background: linear-gradient(45deg, #6f42c1, #b37bd1);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Formulario para escribir y guardar la nota */
+.note-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.note-form input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    width: 90vw;
+    max-width: 600px;
+}
+
+.note-save-btn {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(45deg, #6f42c1, #b37bd1);
+    color: #fff;
+}
+
+/* Rejilla responsiva de tarjetas de notas */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    width: 90%;
+}
+
+/* Tarjeta de nota con el mismo estilo que la principal */
+.note-card {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    border: 2px solid #FFD700;
+    border-radius: 30px;
+    padding: 1rem;
+    color: #000;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1rem, 2.8vw, 1.5rem);
+    line-height: 1.6;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 20px 40px rgba(0, 0, 0, 0.35);
 }
